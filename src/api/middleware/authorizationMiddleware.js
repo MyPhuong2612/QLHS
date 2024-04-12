@@ -1,4 +1,3 @@
-// authorizationMiddleware.js
 const jwt = require('jsonwebtoken');
 
 const authorizationMiddleware = (req, res, next) => {

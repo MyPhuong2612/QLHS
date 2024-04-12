@@ -1,8 +1,10 @@
-module.exports = {
-  // Cấu hình kết nối MongoDB
-  mongoURI: process.env.MONGO_URI || 'mongodb://localhost:27017/profile_management_db',
-  
-  // Cấu hình JWT
-  jwtSecret: process.env.JWT_SECRET || 'jwtSecretKey',
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d'
-};
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
